@@ -1,0 +1,8 @@
+node_modules
+.env
+ormconfig.json
+tmp/*
+!tmp/upload/avatar/.gitkeep
+!tmp/upload/cars/.gitkeep
+dist
+coverage
