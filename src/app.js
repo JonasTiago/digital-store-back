@@ -1,21 +1,16 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import sequelize from "./config/db.js";
+import userRoutes from "./routes/UserRoutes.js";
 
 const app = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
-// app.use("/users", usersRouter);
+app.use(userRoutes);
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Conexão com o banco de dados bem-sucedida!");
-  })
-  .catch((err) => {
-    console.error("Não foi possível conectar ao banco de dados:", err);
-  });
+// Aqui você pode definir as rotas, por exemplo:
+// app.use("/users", usersRouter);
 
 export default app;
