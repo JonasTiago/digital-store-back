@@ -8,9 +8,6 @@ connection
   .then(async () => {
     console.log("Conexão com o banco de dados bem-sucedida!");
 
-    // await connection.sync({ force: true });
-
-    // Cria o servidor HTTP
     const server = http.createServer(app);
 
     const PORT = process.env.PORT || 3000;

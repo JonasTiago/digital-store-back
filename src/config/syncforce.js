@@ -7,5 +7,5 @@ import "../models/UserModel.js";
 import "../models/ProductOptionModel.js";
 import "../models/ProductCategoryModel.js";
 
-connection.sync({ force: true });
+connection.sync({ alter: true });
 console.log("Tabelas sincronizadas com o banco de dados!");
