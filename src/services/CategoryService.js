@@ -22,3 +22,8 @@ export const findAllCategories = async ({
     },
   };
 };
+
+export const createCategory = async (data) => {
+  const category = await CategoryModel.create(data);
+  return category;
+};

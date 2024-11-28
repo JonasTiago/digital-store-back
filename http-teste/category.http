@@ -3,11 +3,10 @@ POST http://localhost:3000/v1/category
 Content-Type: application/json
 
 {
-    "firstName": "admin",
-    "surname": "teste",
-    "email": "admin2@gmail.com",
-    "password": "12345"
-}
+  "name": "Shoes",
+  "slug": "shoes",
+  "use_in_menu": true
+}  
 
 ### Get all items
 GET http://localhost:3000/v1/category/search
