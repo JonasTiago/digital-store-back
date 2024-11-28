@@ -1,0 +1,27 @@
+### Create a new item
+POST http://localhost:3000/v1/category
+Content-Type: application/json
+
+{
+    "firstName": "admin",
+    "surname": "teste",
+    "email": "admin2@gmail.com",
+    "password": "12345"
+}
+
+### Get all items
+GET http://localhost:3000/v1/category/search
+
+### Get a specific item by ID
+GET http://localhost:3000/v1/category/1
+
+### Update an item by ID
+PATCH http://localhost:3000/v1/category/1
+Content-Type: application/json
+
+{
+   "surname": "testes"
+}
+
+### Delete an item by ID
+DELETE http://localhost:3000/v1/category/2

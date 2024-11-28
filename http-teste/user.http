@@ -1,5 +1,5 @@
 ### Create a new item
-POST http://localhost:3000/users
+POST http://localhost:3000/v1/users
 Content-Type: application/json
 
 {
@@ -10,13 +10,13 @@ Content-Type: application/json
 }
 
 ### Get all items
-GET http://localhost:3000/users
+GET http://localhost:3000/v1/users
 
 ### Get a specific item by ID
-GET http://localhost:3000/users/1
+GET http://localhost:3000/v1/users/1
 
 ### Update an item by ID
-PATCH http://localhost:3000/users/1
+PATCH http://localhost:3000/v1/users/1
 Content-Type: application/json
 
 {
@@ -24,4 +24,4 @@ Content-Type: application/json
 }
 
 ### Delete an item by ID
-DELETE http://localhost:3000/users/3
+DELETE http://localhost:3000/v1/users/2
