@@ -15,11 +15,12 @@ GET http://localhost:3000/v1/category/search
 GET http://localhost:3000/v1/category/1
 
 ### Update an item by ID
-PATCH http://localhost:3000/v1/category/1
+PUT http://localhost:3000/v1/category/1
 Content-Type: application/json
 
 {
-   "surname": "testes"
+   "name": "Shoes",
+    "slug": "shoes"
 }
 
 ### Delete an item by ID

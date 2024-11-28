@@ -27,3 +27,28 @@ export const createCategory = async (data) => {
   const category = await CategoryModel.create(data);
   return category;
 };
+
+export const findCategoryById = async (id) => {
+  const category = await CategoryModel.findByPk(id);
+  if (!category) {
+    throw new Error("Category not found");
+  }
+  return category;
+};
+
+export const updateCategory = async (id, data) => {
+  const category = await CategoryModel.findByPk(id);
+  if (!category) {
+    throw new Error("Category not found");
+  }
+  category.update(data);
+  return category;
+};
+
+export const removeCategory = async (id) => {
+  const category = await CategoryModel.findByPk(id);
+  if (!category) {
+    throw new Error("Category not found");
+  }
+  category.destroy();
+};
