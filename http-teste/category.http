@@ -12,7 +12,7 @@ Content-Type: application/json
 GET http://localhost:3000/v1/category/search
 
 ### Get a specific item by ID
-GET http://localhost:3000/v1/category/1
+GET http://localhost:3000/v1/category/7
 
 ### Update an item by ID
 PUT http://localhost:3000/v1/category/1

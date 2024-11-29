@@ -42,11 +42,12 @@ Content-Type: application/json
     ]
   } 
 
+
 ### Get all items
-GET http://localhost:3000/v1/product/search
+GET http://localhost:3000/v1/product/search?limit=-1&page=-1
 
 ### Get a specific item by ID
-GET http://localhost:3000/v1/product/1
+GET http://localhost:3000/v1/product/3
 
 ### Update an item by ID
 PUT http://localhost:3000/v1/product/1

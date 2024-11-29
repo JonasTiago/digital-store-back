@@ -17,16 +17,66 @@ export const findAllProducts = async ({
     ...price_range,
     ...option,
   };
-  const products = await ProductModel.findAndCountAll(query, fields);
+
+  if (page < 1) {
+    page = null;
+  } else {
+    page = (page - 1) * limit;
+  }
+
+  if (limit < 1) {
+    limit = null;
+  }
+
+  const products = await ProductModel.findAndCountAll({
+    where: query,
+    limit,
+    offset: page,
+    attributes: fields,
+    include: [
+      {
+        model: ImageProductModel,
+        as: "images",
+      },
+      // {
+      //   model: ProductOptionModel,
+      //   as: "options",
+      // },
+    ],
+  });
 
   return {
     data: products.rows,
     meta: {
       total: products.count,
-      limit,
-      page,
+      limit: limit ? limit : "all",
+      page: page ? page : undefined,
     },
   };
+};
+
+export const findByIdProduct = async (id) => {
+  const product = await ProductModel.findOne({
+    where: {
+      id,
+    },
+    include: [
+      {
+        model: ImageProductModel,
+        as: "images",
+      },
+      // {
+      //   model: ProductOptionModel,
+      //   as: "options",
+      // },
+    ],
+  });
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  return product;
 };
 
 export const createProduct = async (product) => {

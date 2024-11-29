@@ -13,7 +13,7 @@ Content-Type: application/json
 GET http://localhost:3000/v1/users
 
 ### Get a specific item by ID
-GET http://localhost:3000/v1/users/1
+GET http://localhost:3000/v1/users/7
 
 ### Update an item by ID
 PATCH http://localhost:3000/v1/users/1
