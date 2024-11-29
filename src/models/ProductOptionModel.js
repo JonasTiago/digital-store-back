@@ -27,9 +27,8 @@ ProductOptionModel.init(
       defaultValue: "square",
     },
     radius: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: 0,
     },
     type: {
       type: DataTypes.ENUM("text", "color"),

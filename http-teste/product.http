@@ -1,0 +1,61 @@
+### Create a new item
+POST http://localhost:3000/v1/product
+Content-Type: application/json
+
+  {
+    "enabled": true,
+    "name": "Produto 01",
+    "slug": "produto-01",
+    "stock": 10,
+    "description": "Descrição do produto 01",
+    "price": 119.90,
+    "price_with_discount": 99.90,
+    "category_ids": [1],
+    "images": [ 
+      {
+        "type": "image/png",
+        "content": "base64 da imagem 1" 
+      },
+      {
+        "type": "image/png",
+        "content": "base64 da imagem 2" 
+      },
+      {
+        "type": "image/jpg",
+        "content": "base64 da imagem 3" 
+      }
+    ],
+    "options": [
+      {
+        "title": "Cor",
+        "shape": "square",
+        "radius": "4px",
+        "type": "text",
+        "values": ["PP", "GG", "M"]
+      },
+      {
+        "title": "Tamanho",
+        "shape": "circle",
+        "type": "color",
+        "values": ["#000", "#333"]
+      }
+    ]
+  } 
+
+### Get all items
+GET http://localhost:3000/v1/product/search
+
+### Get a specific item by ID
+GET http://localhost:3000/v1/product/1
+
+### Update an item by ID
+PUT http://localhost:3000/v1/product/1
+Content-Type: application/json
+
+{
+   "name": "Shoes",
+    "slug": "shoes"
+}
+
+### Delete an item by ID
+DELETE http://localhost:3000/v1/product/2
