@@ -168,3 +168,13 @@ export const updateProduct = async (id, data) => {
   //   ],
   // });
 };
+
+export const removeProduct = async (id) => {
+  const product = await ProductModel.findByPk(id);
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  await product.destroy();
+};

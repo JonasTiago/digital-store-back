@@ -47,7 +47,7 @@ Content-Type: application/json
 GET http://localhost:3000/v1/product/search?limit=-1&page=-1
 
 ### Get a specific item by ID
-GET http://localhost:3000/v1/product/3
+GET http://localhost:3000/v1/product/2
 
 ### Update an item by ID
 PUT http://localhost:3000/v1/product/1
