@@ -2,6 +2,7 @@ import {
   createProduct,
   findAllProducts,
   findByIdProduct,
+  updateProduct,
 } from "../services/ProductService.js";
 
 export const findAllSearch = async (req, res) => {
@@ -40,6 +41,18 @@ export const create = async (req, res) => {
     const product = await createProduct(req.body);
     return res.status(201).json(product);
   } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export const update = async (req, res) => {
+  try {
+    const product = await updateProduct(req.params.id, req.body);
+    return res.status(204).json();
+  } catch (error) {
+    if (error.message === "Product not found") {
+      return res.status(404).json({ message: error.message });
+    }
     return res.status(400).json({ message: error.message });
   }
 };

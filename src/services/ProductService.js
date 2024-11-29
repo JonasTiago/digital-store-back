@@ -80,7 +80,7 @@ export const findByIdProduct = async (id) => {
 };
 
 export const createProduct = async (product) => {
-  const newProduct = await ProductModel.create(product);
+  const upProduct = await ProductModel.create(product);
 
   const imagesToInsert = product.images.map((image) => ({
     ...image,
@@ -120,4 +120,51 @@ export const createProduct = async (product) => {
   });
 
   return productWithImages;
+};
+
+export const updateProduct = async (id, data) => {
+  const product = await ProductModel.findByPk(id);
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  const upProduct = await product.update(data);
+
+  // const imagesToInsert = data.images.map((image) => ({
+  //   ...image,
+  //   path: image.content,
+  //   product_id: upProduct.id,
+  // }));
+
+  // const optionToInsert = data.options.map((option) => ({
+  //   ...option,
+  //   product_id: upProduct.id,
+  // }));
+
+  // await ImageProductModel.bulkCreate(imagesToInsert);
+  // const images = await ImageProductModel.findAll({
+  //   where: {
+  //     product_id: upProduct.id,
+  //   },
+  // });
+
+  // await ProductOptionModel.bulkCreate(optionToInsert);
+  // const options = await ProductOptionModel.findAll({
+  //   where: {
+  //     product_id: upProduct.id,
+  //   },
+  // });
+
+  // const productWithImages = await ProductModel.findOne({
+  //   where: {
+  //     id: upProduct.id,
+  //   },
+  //   include: [
+  //     {
+  //       model: ImageProductModel,
+  //       as: "images",
+  //     },
+  //   ],
+  // });
 };

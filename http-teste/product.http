@@ -53,10 +53,15 @@ GET http://localhost:3000/v1/product/3
 PUT http://localhost:3000/v1/product/1
 Content-Type: application/json
 
-{
-   "name": "Shoes",
-    "slug": "shoes"
-}
+  {
+    "enabled": true,
+    "name": "Produto 01 atualizado",
+    "slug": "produto-01-atualizado",
+    "stock": 20,
+    "description": "Descrição do produto 01 atualizado",
+    "price": 49.9,
+    "price_with_discount": 0
+  }
 
 ### Delete an item by ID
 DELETE http://localhost:3000/v1/product/2
