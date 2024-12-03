@@ -4,6 +4,7 @@ import {
   createUser,
   updateUser,
   deleteUser,
+  authUserToken,
 } from "../services/UserServices.js";
 
 export const findAll = async (req, res) => {
@@ -49,8 +50,21 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
   try {
     const user_id = req.params.id;
+    console.log(user_id);
     await deleteUser(user_id);
     return res.status(204).send();
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export const authUser = async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const token = await authUserToken(email, password);
+    return res.status(200).json(token);
   } catch (error) {
     return res.status(400).json({ message: error.message });
   }

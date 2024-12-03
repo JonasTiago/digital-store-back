@@ -1,5 +1,5 @@
 ### Create a new item
-POST http://localhost:3000/v1/users
+POST http://localhost:3000/v1/user
 Content-Type: application/json
 
 {
@@ -9,19 +9,30 @@ Content-Type: application/json
     "password": "12345"
 }
 
+### Auth user / login
+POST http://localhost:3000/v1/user/token
+Content-Type: application/json
+
+{
+    "email": "admin2@gmail.com",
+    "password": "12345"
+}
+
 ### Get all items
-GET http://localhost:3000/v1/users
+GET http://localhost:3000/v1/user
 
 ### Get a specific item by ID
-GET http://localhost:3000/v1/users/7
+GET http://localhost:3000/v1/user/7
 
 ### Update an item by ID
-PATCH http://localhost:3000/v1/users/1
+PATCH http://localhost:3000/v1/user/5
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJpYXQiOjE3MzMyMjczNzd9.trZdVbDrFwoXQu2gVXuCOEQuqgRk3-bBsIIMHd6woIU
 
 {
    "surname": "testes"
 }
 
 ### Delete an item by ID
-DELETE http://localhost:3000/v1/users/2
+DELETE http://localhost:3000/v1/user/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluMkBnbWFpbC5jb20iLCJpYXQiOjE3MzMyMjczNzd9.trZdVbDrFwoXQu2gVXuCOEQuqgRk3-bBsIIMHd6woIU
